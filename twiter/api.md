@@ -10,7 +10,7 @@
 + url : string (optional)
 
 
-## *GET* /tweets
+### *GET* /tweets
 get all tweets
 
 > Response 200
@@ -20,7 +20,7 @@ get all tweets
   [tweet, tweet, ....]
 }
 ```
-## *GET* /tweets?username=:username
+### *GET* /tweets?username=:username
 get all tweet for users name
 > Response 200
 
@@ -30,7 +30,7 @@ get all tweet for users name
 }
 ```
 
-## *GET* /tweets:id
+### *GET* /tweets:id
 get tweet by id
 > Response 200
 
@@ -40,7 +40,7 @@ get tweet by id
 }
 ```
 
-## *POST* /tweets:id
+### *POST* /tweets:id
 get tweet by id
 > request
 
@@ -61,7 +61,7 @@ get tweet by id
 }
 ```
 
-## *PUT* /tweets/:id
+### *PUT* /tweets/:id
 update tweet
 > request
 
@@ -78,7 +78,7 @@ update tweet
 }
 ```
 
-## *PUT* /tweets/:id
+### *PUT* /tweets/:id
 update tweet
 
 > response 204
