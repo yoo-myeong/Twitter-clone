@@ -1,11 +1,11 @@
-# 👉 API 스펙 설계
+# 👉 트윗 API 스펙 설계
 
 >직렬화 포맷 : JSON <br>
 >API 설계 원칙 : REST API
 
 <br>
 
-### ✅ GET /tweets
+### ✅ *GET* /tweets
 
 + 모든 트윗 가져오기
 + 응답 : 200
@@ -16,7 +16,7 @@
     }
     ```
 
-### ✅ GET /tweets?username=:username
+### ✅ *GET* /tweets?username=:username
 
 + 유저네임의 트윗을 모두 가져오기
 + 응답 : 200
@@ -27,18 +27,18 @@
     }
     ```
 
-### ✅ GET /tweets/:id
+### ✅ *GET* /tweets/:id
 
 + 데이터의id에 해당하는 하나의 트윗을 가져오기
 + 응답 : 200
 
     ```
     {
-        [tweet, tweet, ...]
+        tweet
     }
     ```
 
-### ✅ POST /tweets
+### ✅ *POST* /tweets
 
 + 새로운 트윗 생성
 
@@ -56,7 +56,7 @@
     }
     ```
 
-### ✅ PUT /tweets/:id
+### ✅ *PUT* /tweets/:id
 
 + 데이터id를 가진 트윗의 내용 수정
 
@@ -74,7 +74,7 @@
     }
     ```
 
-### ✅ DELETE /tweets/:id
+### ✅ *DELETE* /tweets/:id
 
 + 데이터id를 가진 트윗 전체 삭제
 
