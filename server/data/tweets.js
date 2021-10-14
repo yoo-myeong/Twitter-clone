@@ -1,34 +1,69 @@
-let tweets = [
-    {id:'1', text:'hi', createTime:Date.now().toString, name:'seon', username:"c_on12"}
-]
+import SQ from 'sequelize'
+import { sequelize } from '../db/database.js';
+import {User} from './auth.js'
+const DataTypes = SQ.DataTypes
+const Sequelize = SQ.Sequelize
+
+const Tweet = sequelize.define('tweet', {
+    id:{
+        type: DataTypes.INTEGER, autoIncrement:true, allowNull:false, primaryKey:true,
+    },
+    text:{
+        type:DataTypes.TEXT,
+        allowNull:false,
+    },
+})
+Tweet.belongsTo(User)
+
+const INCLUDE_USER = {
+    attributes:[
+        'id', 'text', 'createdAt', 'userId', 
+        [Sequelize.col('user.name'), 'name'],
+        [Sequelize.col('user.username'), 'username']
+    ],
+    include:{
+        model:User,
+        attributes: []
+    },
+}
+
+const ORDER_DESC = {order:[['createdAt','DESC']]}
 
 export async function getAll(){
-    return tweets
+    return Tweet.findAll({...INCLUDE_USER, ...ORDER_DESC })
 }
 
 export async function getAllByUsername(username){
-    return tweets.filter((tweet) => tweet.username === username)
+    return Tweet.findAll({...INCLUDE_USER, ...ORDER_DESC, 
+        include:{
+            ...INCLUDE_USER.include, where:{username},
+        } 
+})
 }
 
-export async function getAllById(id){
-    tweets.find(tweet=>tweet.id === id)
-    return tweets
+export async function getById(id){
+    return Tweet.findOne({
+        where:{id},
+        ...INCLUDE_USER
+    })
 }
 
-export async function create(tweet){
-    tweets.push(tweet)
-    return tweets
+export async function create(text, userId){
+    return Tweet.create({text, userId}).then((data)=>
+        this.getById(data.dataValues.id))
 }
 
 export async function update(id,text){
-    const tweet = tweets.find(tweet=>tweet.id === id);
-    if(tweet) {
+    return Tweet.findByPk(id, INCLUDE_USER)
+    .then(tweet=>{
         tweet.text = text;
-        return tweets
-    }else return False
+        return tweet.save()
+    })
 }
 
-export async function deleteTweet(id){
-    tweets = tweets.filter(tweet => tweet.id !== id);
-    return tweets
+export async function remove(id){
+    return Tweet.findByPk(id)
+    .then(tweet=>{
+        tweet.destroy();
+    })
 }
