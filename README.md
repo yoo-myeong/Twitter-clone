@@ -22,15 +22,15 @@ https://twittercl.netlify.app/
 
 + MVC패턴 구현
 
-+ 요청받은 데이터를 DB에 전달하기 전에 validation 라이브러리를 사용해서 서버에서 먼저 유효성 검증
++ 요청받은 데이터를 DB에 전달하기 전에 validation의 API로 서버에서 먼저 유효성 검증
 
-+ JWT를 사용해서 로그인에 필요한 토큰 생성
-  + bcypy를 사용해 password를 해싱하고 DB에 저장
-  + jwtSecretKey나 bcrypt Salt bound 등을 configuration
++ JsonWebToken API로 로그인에 필요한 토큰 생성
+  + bcypt로 password를 해싱하고 DB에 저장
+  + jwtSecretKey나 bcryptSaltBound 등을 configuration
 
 + socket을 사용해서 실시간 트윗 구현
 
-+ sequelize orm을 사용해서 DB구축 및 CRUD 구현
++ sequelize orm으로 DB구축 및 CRUD 구현
 
 <br>
 
