@@ -6,7 +6,7 @@ class Socket {
   constructor(server) {
     this.io = new Server(server, {
       cors: {
-        origin: '*',
+        origin: config.cors.allowedOrigin,
       },
     });
 
@@ -15,7 +15,7 @@ class Socket {
       if (!token) {
         return next(new Error('Authentication error'));
       }
-      jwt.verify(token, config.jwt.secretKey, (error, decoded) => {
+      jwt.verify(token, config.jwt.secreatKey, (error, decoded) => {
         if (error) {
           return next(new Error('Authentication error'));
         }
