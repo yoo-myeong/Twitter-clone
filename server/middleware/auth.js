@@ -16,6 +16,7 @@ export const isAuth = async (req,res,next)=>{
             const user = await userRepository.findById(decode.id)
             if(!user) return res.status(401)
             req.userId = user.id;
+            req.token = token;
             next();
         })
 }
