@@ -1,43 +1,34 @@
-# 트위터 클론코딩
+# 트위터 API 클론코딩
 
-온라인 강의(드림코딩-노드로 배우는 백엔드)를 수강하면서 진행한 트위터 클론 코딩 프로젝트
+온라인 강의(드림코딩-노드로 배우는 백엔드 A-Z)에서 진행한 트위터 API 클론 프로젝트
+
+<br>
+
+## ✅ 페이지 도메인
 
 https://twittercl.netlify.app/
 
-+ [tweet API 스펙](./설계/트윗API스펙.md)
+<br>
 
-+ [login API 스펙](./설계/LoginAPI스펙.md)
+## ✅ API 스펙
+
+- [Tweets API 스펙](./설계/tweets.api.md)
+
+- [Auth API 스펙](./설계/auth.api.md)
 
 <br>
 
-## ✅ 프론트엔드
+## ✅ 설계과정
 
-따로 제작하지 않고 강의에서 제공하는 리액트 프로젝트를 활용
-
-<br>
-
-## ✅ 백엔드
-
-+ Express를 사용하여 서버 구축
-
-+ MVC패턴 구현
-
-+ 요청받은 데이터를 DB에 전달하기 전에 validation의 API로 서버에서 먼저 유효성 검증
-
-+ JsonWebToken API로 로그인에 필요한 토큰 생성
-  + bcypt로 password를 해싱하고 DB에 저장
-  + jwtSecretKey나 bcryptSaltBound 등을 configuration
-
-+ socket을 사용해서 실시간 트윗 구현
-
-+ sequelize orm으로 DB구축 및 CRUD 구현
+<img src = "./설계/twitter.drawio.png" style="width:400px">
 
 <br>
 
 ## ✅ 배포
-+ netlify
-  + 프론트엔드 프로젝트 배포
-+ heroku
-  + 백엔드 프로젝트 배포
-  + postgerSQL
-  + https://twittercs.herokuapp.com/
+
+- netlify
+  - 프론트엔드 프로젝트 배포
+- heroku
+  - 백엔드 프로젝트 배포
+  - postgerSQL
+  - https://twittercs.herokuapp.com/
