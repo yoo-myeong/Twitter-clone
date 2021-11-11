@@ -10,7 +10,7 @@ https://twittercl.netlify.app/
 
 <br>
 
-## ✅ API 스펙
+## ✅ Server API 스펙
 
 - [Tweets API 스펙](./설계/tweets.api.md)
 
